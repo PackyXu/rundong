@@ -1,0 +1,23 @@
+html{
+    font-size: 100%;
+    color: #000;
+}
+.container{
+    margin-bottom: 1rem;
+}
+.time{
+    padding-left: 1rem;
+}
+.mtop2{
+    margin-top: 2rem;
+}
+p{
+    line-height:1.5rem;
+    letter-spacing: 1px;
+}
+.indent{
+    text-indent: 2rem;
+}
+.gray{
+    color: #999;
+}

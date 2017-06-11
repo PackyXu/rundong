@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择车型</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 lg3rem" style="text-align: center;">
+                <a href="javascript:history.go(-1);">
+                    <i class="glyphicon glyphicon-menu-left glyphicon-back"></i>
+                </a>
+            </div>
+            <div class="col-xs-8 lg3rem" style="text-align: center;font-size: 1.2rem;color:#2f8660;">选择车型</div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+</nav>
+<div class="container" id="container" style="margin: 4rem 0;">
+
+        <div class="row">
+            <div class="col-xs-12 lg3rem"  style="padding: 0;">
+                <div style="background: #f5f5f5;padding: 0 15px;font-size: 1.2rem" >路虎(国产)</div>
+            </div>
+        </div>
+        <div class="row border-botm1px" style="">
+            <div class="col-xs-12">
+                <a href="#" class="a_width a_blcok">
+                    <div class="col-xs-12 lg3rem line-fz" style="padding: 0">
+                        揽胜极光
+                    </div>
+                </a>
+            </div>
+        </div>
+
+</div>
+
+<script>
+    $(function () {
+
+        var brand_id = getUrlParam('brand_id');
+        $.ajax({
+            url:  linkurl+"get_car_styles.php?brand_id=" + brand_id,
+            type: "GET",
+            dataType: 'json',
+            success: function (res) {
+                if(res.error_code == 100){
+                    var list = res.data;
+                    var htmlstr = '';
+                    for(var i = 0; i < list.length; i++) {
+                        htmlstr += '<div class="row">';
+                        htmlstr += '<div class="col-xs-12 lg3rem"  style="padding: 0;">';
+                        htmlstr += '<div style="background: #f5f5f5;padding: 0 15px;font-size: 1.2rem" >' +  list[i][0]['type_name'] + '</div></div></div>';
+                        for(var j = 0; j < list[i].length; j++) {
+                            htmlstr += '';
+                            htmlstr += '<div class="row border-botm1px" style=""><div class="col-xs-12">';
+                            htmlstr += '<a href="select_year.html?brand_id=' + brand_id + '&style_id=' + list[i][j]['style_id'] + '" class="a_width a_blcok">';
+                            htmlstr += '<div class="col-xs-12 lg3rem line-fz" style="padding: 0">' + list[i][j]['style_name'];
+                            htmlstr += '</div></a></div></div>';
+                        }
+                    }
+                    $('#container').html(htmlstr);
+                }
+
+                //console.log(data);
+            },error:function () {
+                alert('接收数据失败！');
+            }
+        });
+
+    });
+
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return unescape(r[2]);
+        return null;
+    }
+</script>
+
+<script>
+
+    $(function () {
+        $('.bottom').click(function () {
+            alert($("input[type='checkbox']:checked").length);
+        });
+    })
+
+</script>
+</body>
+</html>

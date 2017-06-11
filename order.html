@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单填写</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+<input type="hidden" name="chuxuprice">
+<nav class="navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 lg3rem" style="text-align: center;">
+                <a href="javascript:history.go(-1);">
+                    <i class="glyphicon glyphicon-menu-left"></i>
+                </a>
+            </div>
+            <div class="col-xs-8 lg3rem" style="text-align: center;font-size: 1.2rem;color:#2f8660;">订单填写</div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+</nav>
+<div class="container" style="margin: 4rem 0;">
+    <div class="row">
+        <div class="col-xs-12 lg3rem"  style="padding: 0;">
+            <div style="background: #f5f5f5;padding: 0 15px;font-size: 1.2rem;" >保养项目</div>
+        </div>
+    </div>
+    <!--保养项目-->
+    <div class="row" id="item" style="padding: 1rem 0px;">
+        <div class="col-xs-12" style="display:none;" >
+            <div class="col-xs-1 lh2rem" style="padding: 0">
+                <img src="images/small_circle@2x.png" alt="" class="small-img">
+            </div>
+            <div class="col-xs-9 lh2rem" style="padding: 0">
+                <div class=""><strong>机油</strong></div>
+            </div>
+
+            <div class="col-xs-12 lh2rem">
+                <div>原厂进口XXXXXXXXXXXX合成机油</div>
+            </div>
+        </div>
+
+        <div class="col-xs-12"  style="display:none;">
+            <div class="col-xs-1 lh2rem" style="padding: 0;">
+                <img src="images/small_circle@2x.png" alt="" class="small-img">
+            </div>
+            <div class="col-xs-9 lh2rem" style="padding: 0">
+                <div class=""><strong>机油滤清器</strong></div>
+            </div>
+
+            <div class="col-xs-12 lh2rem">
+                <div>原厂进口XXXXXXXXXXXX滤清器</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 lg3rem"  style="padding: 0;">
+            <div style="background: #f5f5f5;padding: 0 15px;font-size: 1.2rem;" >保养方式</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5" style="">
+            <span style="margin-right: 4px;line-height: 3rem;">
+                <input type="radio" class="quche" id="tostroe" name="fangshi" checked="checked" value="0" style="vertical-align: middle;margin:0;" onclick="edit_price(1)"/>
+            </span>
+            <label for="tostroe">到店保养</label>
+        </div>
+        <div class="col-xs-7" style="">
+           <span style="margin-right: 4px;line-height:3rem;">
+               <input type="radio" class="quche" id="quche" name="fangshi"  value="99" style="vertical-align: middle;margin:0;" onclick="edit_price(2)">
+           </span>
+            <label for="quche">上门取车(99元起)</label>
+        </div>
+    </div>
+    <!--基本信息填写-->
+    <div class="row">
+        <div class="col-xs-12 lg3rem"  style="padding: 0;">
+            <div style="background: #f5f5f5;padding: 0 15px;font-size: 1.2rem;" >基本信息</div>
+        </div>
+    </div>
+    <!--详细信息-->
+    <div class="row mbt" style="">
+        <div class="col-xs-4 lh3rem">保养日期</div>
+        <div class="col-xs-8 lh3rem">
+            <select name="date" id="date" style="width: 100%;border:none;height:auto;">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="row mbt">
+        <div class="col-xs-4 lh3rem">保养时段</div>
+        <div class="col-xs-8 lh3rem">
+            <select name="time" id="time" style="width: 100%;border:none;height:auto;">
+                <option value="上午">上午</option>
+                <option value="下午">下午</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mbt">
+        <div class="col-xs-4 lh3rem">联系人</div>
+        <div class="col-xs-8 lh3rem">
+            <input type="text" name="contact" placeholder="请输入联系人姓名" required="required">
+        </div>
+    </div>
+    <div class="row mbt">
+        <div class="col-xs-4 lh3rem">联系电话</div>
+        <div class="col-xs-8 lh3rem">
+            <input type="number" name="mobile" pattern="[0-9]{11}" maxlength="11" required="required" placeholder="请输入联系电话">
+        </div>
+    </div>
+    <div class="row mbt" id="quchedizhi" style="display: none;">
+        <div class="col-xs-4 lh3rem">取车地址</div>
+        <div class="col-xs-8 lh3rem">
+            <input type="text" name="address" required="required" placeholder="请输入上门取车地址">
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<nav class="navbar navbar-fixed-bottom" style="">
+    <div class="container ">
+        <div class="row">
+            <div class="col-xs-8 bottom" style="line-height:3rem;">
+                <strong>合计：</strong>
+                <span class="money" id="money"></span>
+            </div>
+            <div class="col-xs-4 sub" style="line-height:3rem;background: #2f8660;color:#fff;text-align: center;">
+                下一步
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<script>
+    function edit_price(numid) {
+        var price = $("#money").html();
+        if(numid == 1) {
+            $("#quchedizhi").hide();
+            price = $("input[name=chuxuprice]").val();
+        } else if(numid == 2) {
+            $("#quchedizhi").show();
+            var chuxuprice = $("input[name=chuxuprice]").val();
+            price =  chuxuprice + '+' + '99';
+        }
+        $("#money").html(price);
+    }
+
+    function change_radio(){
+        var fangshiid = $("input[name='fangshi']:checked").val();
+
+        if(fangshiid == 0) {
+            edit_price(1);
+        } else if(fangshiid == 99) {
+            edit_price(2);
+        }
+    }
+
+    $(function () {
+        $('.sub').on('click',function () {
+            //alert($("input[type='radio']:checked").length);
+            var fangshi=$("input[name='fangshi']:checked").val();
+            var address=$("input[name='address']").val();
+            var date=$("#date").val();
+            var time=$("#time").val();
+            var contact=$("input[name='contact']").val();
+            var mobile=$("input[name='mobile']").val();
+
+            if (fangshi==99) {
+
+                if( address ==''){
+                    alert('上门取车地址不能为空！');
+                    $("input[name='address']").focus();
+                    return false;
+                }
+
+            }
+
+            if (date == '' || date  ==null ) {
+                alert('请选择预约日期！');
+                $("#date").focus();
+                return false;
+            }
+
+
+            if (time =='' ||time ==null ) {
+                alert('请选择预约时间！');
+                $("#time").focus();
+                return false;
+            }
+
+
+            if (contact =='') {
+                alert('联系人不能为空！');
+                $("input[name='contact']").focus();
+                return false;
+            }
+
+            if (mobile =='') {
+                alert('手机号码不能为空！');
+                $("input[name='mobile']").focus();
+                return false;
+            }
+
+
+            if(!(/^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(1[0-9])\d{9}$)/.test($("input[name='mobile']").val().trim()))){
+                alert("号码输入有误！");
+                $("input[name='mobile']").focus();
+                return false;
+            }
+
+           $.ajax({
+                type: "POST",
+                url: linkurl+ "get_order_submit.php",
+                dataType: "json",
+                data:{
+                    fangshi:fangshi,
+                    date:date,
+                    time:time,
+                    mobile:mobile,
+                    contact:contact,
+                    address:address
+                },
+                success:function (res) {
+                    if(res.error_code == 100){
+                        var lists=res.data;
+                        alert("订单已提交，你的订单号是："+lists.orderNum);
+                      location.href="pay.html?total_price="+res.data.total_price;
+                    }
+
+                },error:function () {
+                    alert('订单提交失败！');
+                   location.href="order.html";
+                }
+
+            });
+            $('.sub').hide();
+
+        });
+
+        var carIdent = getUrlParam('carIdent');
+        var milemeter = getUrlParam('milemeter');
+        var val_0 = getUrlParam('items');
+
+        $.ajax({
+            type: "GET",
+            url: linkurl+"get_order.php",
+            dataType: "json",
+            data: {
+                carIdent: carIdent,
+                milemeter: milemeter,
+                items:val_0
+            },
+            success: function (res) {
+                //console.log(res);
+                if(res.error_code == 100) {
+                    var list = res.data;
+                    var htmlstr = '';
+                    var thisitem = '';
+                    var datelist = '';
+
+                    var total_price = list.total_price;
+                    $("input[name=chuxuprice]").val(total_price);
+
+                    for(var i=0; i<list.items.length;i++){
+                        thisitem = list.items[i];
+                        htmlstr += '<div class="col-xs-12" >';
+                        htmlstr += '<div class="col-xs-1 lh2rem" style="padding: 0">';
+                        htmlstr += '<img src="images/small_circle@2x.png" alt="" class="small-img">';
+                        htmlstr += '</div>';
+                        htmlstr += '<div class="col-xs-9 lh2rem" style="padding: 0">';
+                        htmlstr += '<div class="itemName item_id">' + thisitem.item_name + '</div>';
+                        htmlstr += '</div>';
+                        htmlstr += '<div class="col-xs-12 lh2rem">';
+                        htmlstr += '<div>' + thisitem.part_name + '</div>';
+                        htmlstr += '</div>';
+                        htmlstr += '</div>';
+                    }
+
+                    for(var i = 0; i < list.time.length; i++){
+                        thisitem = list.time[i];
+                        datelist += '<option value="' + thisitem + '">'+ thisitem + '</option>';
+                    }
+                    $('#date').html(datelist);
+                    $('#item').html(htmlstr);
+                    $('#money').html(total_price);
+                    change_radio();
+                }
+
+            }, error: function () {
+                alert('数据提交失败！');
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>

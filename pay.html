@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 lg3rem" style="text-align: center;">
+                <a href="javascript:history.go(-1);">
+                    <i class="glyphicon glyphicon-menu-left"></i>
+                </a>
+            </div>
+            <div class="col-xs-8 lg3rem" style="text-align: center;font-size: 1.2rem;color:#2f8660;">订单支付</div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+</nav>
+<div class="container" style="margin: 4rem 0;">
+
+    <!--payType-->
+    <div class="row" style="">
+        <div class="col-xs-12 pay-mg" >
+            <div class="col-xs-3 lh2rem" style="padding: 0">
+                <img src="images/weixin@2x.png" alt="" class="pay-img">
+            </div>
+            <div class="col-xs-7 lh2rem" style="padding: 0">
+                <div class=""><strong>微信支付</strong></div>
+            </div>
+
+            <div class="col-xs-2 lh2rem">
+                <input type="radio" name="pay" >
+            </div>
+        </div>
+
+        <div class="col-xs-12 pay-mg" >
+            <div class="col-xs-3 lh2rem" style="padding: 0">
+                <img src="images/baoyanghou@2x.png" alt="" class="pay-img">
+            </div>
+            <div class="col-xs-7 lh2rem" style="padding: 0">
+                <div class=""><strong>保养完成后付款</strong></div>
+            </div>
+
+            <div class="col-xs-2 lh2rem">
+                <input type="radio" name="pay" checked="checked">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--底部-->
+<nav class="navbar navbar-fixed-bottom" style="">
+    <div class="container ">
+        <div class="row">
+            <div class="col-xs-8 bottom" style="line-height:3rem;">
+                <strong>合计：</strong>
+                <span class="money" id="money"></span>
+            </div>
+            <div class="col-xs-4 bottom" style="line-height:3rem;background: #2f8660;color:#fff;text-align: center;">
+                下一步
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<script>
+
+    $(function () {
+        var total_price = getUrlParam('total_price');
+        $('#money').html(total_price);
+
+        $('.bottom').click(function () {
+            alert($("input[type='radio']:checked").length);
+
+        });
+    })
+
+</script>
+</body>
+</html>

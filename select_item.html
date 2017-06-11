@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择保养项目</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/common.js"></script>
+    <style>
+        .none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 lg3rem" style="text-align: center;">
+                    <a href="javascript:history.go(-1);">
+                        <i class="glyphicon glyphicon-menu-left"></i>
+                    </a>
+                </div>
+                <div class="col-xs-8 lg3rem" style="text-align: center;font-size: 1.2rem;color:#2f8660;">选择保养项目</div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+    </nav>
+    <form  method="post" id="subform">
+    <div class="container" style="margin: 4rem 0;">
+
+
+
+        <div class="row">
+            <div class="col-xs-12 lg3rem"  style="padding: 0;">
+                <div style="background: #f5f5f5;padding: 0 15px" >根据您的爱车信息，我们推荐 <span style="color:#2f8660;" id="tjnum"></span>项保养</div>
+            </div>
+        </div>
+        <!--推荐项目-->
+        <div class="row" id="tj_item" style="padding: 1rem 0px;">
+
+            <div class="col-xs-12 tj_item" style="display:none;">
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>机油滤清器</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox" id="c2" name="checks2" checked="checked" value="0">
+                </div>
+                <div class="col-xs-12 lh2rem">
+                    <div>原厂进口XXXXXXXXXXXX滤清器</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 lg3rem"  style="padding: 0;">
+                <div style="background: #f5f5f5;padding: 0 15px" >以下<span style="color:#2f8660;" id="kxnum"></span>项状况良好，可选择保养</div>
+            </div>
+        </div>
+        <!--推荐保养项目 非必须-->
+        <div class="row" id="kx_item" style="padding: 1rem 0px;">
+            <div class="col-xs-12 none" >
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>转向助力油</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <!--<input type="checkbox" >-->
+                    <input type="checkbox" name="" class="" value="1" >
+                </div>
+            </div>
+
+            <div class="col-xs-12 none">
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>刹车油</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox" value="2">
+                </div>
+            </div>
+            <div class="col-xs-12 none" >
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>燃油滤清器</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox" value="3"/>
+                </div>
+
+            </div>
+            <div class="col-xs-12 none" >
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>空调滤清器</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox" value="4"/>
+                </div>
+
+            </div>
+            <div class="col-xs-12 none" >
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>火花塞</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox" >
+                </div>
+
+            </div>
+            <div class="col-xs-12 none" >
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>防冻液</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox">
+                </div>
+
+            </div>
+            <div class="col-xs-12 none" >
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>火花塞</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox" class="c1">
+                </div>
+            </div>
+            <div class="col-xs-12 none" >
+                <div class="col-xs-1 lh2rem" style="padding: 0">
+                    <img src="images/small_circle@2x.png" alt="" class="small-img">
+                </div>
+                <div class="col-xs-9 lh2rem" style="padding: 0">
+                    <div class=""><strong>助力箱油</strong></div>
+                </div>
+                <div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">
+                    <input type="checkbox"  class="" >
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+    <!--底部-->
+    <nav class="navbar navbar-fixed-bottom" style="">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-8 bottom" style="line-height:3rem;">
+                    <strong>合计：</strong>
+                    <span class="money" id="money"></span>
+                </div>
+                <div class="col-xs-4 bottom sub" onclick="sub();" style="line-height:3rem;background: #2f8660;color:#fff;text-align: center;">
+                    下一步
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <script>
+
+        function sum_price() {
+            var checkedewe = $("input[type='checkbox']:checked");
+            var sumprice = 0;
+            $(checkedewe).each(function(i, e){
+                sumprice += $(e).attr('in_price') * 1;
+            });
+            $("#money").html('￥' + sumprice);
+            return sumprice;
+        }
+
+      $(function () {
+          var carIdent = getUrlParam('carIdent');
+          var car_name = getUrlParam('text_name');
+          var milemeter = getUrlParam('milemeter');
+          $.ajax({
+              type:"GET",
+              url: linkurl + "get_item.php",
+              dataType:"json",
+              data:{
+                  carIdent:carIdent,
+                  milemeter:milemeter
+              },
+              success:function(res){
+                  if(res.error_code == 100){
+
+                      var list = res.data;
+                      /*console.log(list);
+                      alert(list);*/
+                      var htmlstr = '';
+                      var htmlstr2 = '';
+                      var tjnum = 0;
+                      var kxnum = 0;
+                      for(var i=0; i<list.length;i++){
+                          if (list[i].is_main == 1) {
+                              htmlstr+='<div class="col-xs-12" >';
+                              htmlstr+='<div class="col-xs-1 lh2rem" style="padding: 0">';
+                              htmlstr+='<img src="images/small_circle@2x.png" alt="" class="small-img">';
+                              htmlstr+='</div>';
+                              htmlstr+='<div class="col-xs-9 lh2rem" style="padding: 0">';
+                              htmlstr+='<div class="itemName item_id">' + list[i].item_name + '</div>';
+                              htmlstr+='</div>';
+                              htmlstr+='<div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">';
+                              htmlstr+='<input type="checkbox" onclick="sum_price();" value="'+list[i].item_id+'"  name="checks[]" checked="checked" in_price="' + list[i].part_info.in_price +'">';
+                              htmlstr+='</div>';
+                              htmlstr+='<div class="col-xs-12 lh2rem">';
+                              htmlstr+='<div>' +list[i].part_info.part_name+'</div>';
+                              htmlstr+='</div>';
+                              htmlstr+='</div>';
+                              tjnum++;
+                          } else {
+                              htmlstr2+='<div class="col-xs-12" >';
+                              htmlstr2+='<div class="col-xs-1 lh2rem" style="padding: 0">';
+                              htmlstr2+='<img src="images/small_circle@2x.png" alt="" class="small-img">';
+                              htmlstr2+='</div>';
+                              htmlstr2+='<div class="col-xs-9 lh2rem" style="padding: 0">';
+                              htmlstr2+='<div class="itemName item_id">' + list[i].item_name + '</div>';
+                              htmlstr2+='</div>';
+                              htmlstr2+='<div class="col-xs-2 lh2rem" style="padding: 0;text-align: center;">';
+                              htmlstr2+='<input type="checkbox" onclick="sum_price();"  value="'+list[i].item_id+'" name="checks[]"  in_price="' + list[i].part_info.in_price +'">';
+                              htmlstr2+='</div>';
+                              htmlstr2+='</div>';
+                              kxnum++;
+                          }
+                      }
+                      $('#tj_item').html(htmlstr);
+                      $('#kx_item').html(htmlstr2);
+                      $('#tjnum').html(tjnum);
+                      $('#kxnum').html(kxnum);
+                      sum_price();
+                  }else{
+                      alert('查询不到该车型信息！');
+                      location.href="index.html";
+                  }
+              },
+              error:function(){
+                  alert('数据传输失败！');
+                  return false;
+              }
+          });
+      });
+
+      function sub()
+        {
+            var carIdent = getUrlParam('carIdent');
+            var car_name = getUrlParam('text_name');
+            var milemeter = getUrlParam('milemeter');
+
+            var x=document.getElementsByName("checks[]");
+            var m=0;
+            var is_first=true;
+            var val_0 ="";
+
+            for(var i=0;i<x.length;i++)
+            {
+                if(x[i].checked)
+                {
+                    if(is_first) {
+                        val_0 += x[i].value;
+                    }
+                    else {
+                        val_0 += ",";
+                        val_0 += x[i].value;
+                    }
+                    is_first=false;
+                    m++;
+                }
+            }
+
+            if(is_first) {
+                alert("请选择一个项目!");
+                return false;
+            }
+            sum_price();
+            location.href = "order.html?items=" + val_0 + "&carIdent=" + carIdent + "&milemeter=" + milemeter;
+        }
+    </script>
+</body>
+</html>

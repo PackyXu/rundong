@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>车辆信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
+    <style>
+        body,html{
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row" style="">
+        <div class="col-xs-12 center-block log-mg" style="">
+            <img src="images/index/jierun@2x.png" alt="" class="rd-log center-block img-responsive" style="">
+        </div>
+        <div class="col-xs-12 center-block linemt2rem" style="">
+            <img src="images/index/line@2x.png" alt=""  class="line center-block img-responsive" style="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 mt2rem">
+            <div class="col-xs-2 lg3rem"  style="">
+                <img src="images/beibei.png" alt="" class="center-block caricon img-responsive"  style="">
+            </div>
+            <div class="col-xs-8 border-botm1px lg3rem" style="">
+                <input type="text" name="carinfo" id="carinfos" class="ellips" value="" placeholder="选择车辆信息" readonly required>
+            </div>
+            <a href="select_brand.html">
+                <div class="col-xs-2 lg3rem" style="">
+                    <i class="glyphicon glyphicon-menu-right"></i>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-xs-12 mt2rem" >
+            <div class="col-xs-2 lg3rem" style="">
+                <img src="images/kilo.png" alt="" class="center-block caricon img-responsive">
+            </div>
+            <div class="col-xs-8 lg3rem border-botm1px" style="">
+                <input type="number" name="milemeter" id="milemeter" class="" value="" required="required" pattern="[0-9]{6}"  placeholder="请输入里程数" required>
+            </div>
+            <div class="col-xs-2 lg3rem" style="">
+              <strong>公里</strong>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 next" style="">
+            <button class="btn">下一步</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        var searchstr = decodeURI(window.location.search);
+        var textname = getUrlParam('text_name', searchstr);
+
+        var carIdent = getUrlParam('car_no', searchstr);
+
+        var car_name=$('input[name=carinfo]').val(textname);
+
+        $('.btn').on('click',function () {
+
+            var milemeter=$('input[name=milemeter]').val();
+
+            if(car_name =='' && kilo ==''){
+                alert('车辆信息和公里数不得为空！');
+            }
+            if ($("input[name='carinfo']").val().trim()=='') {
+                alert('车辆信息不能为空！');
+                $("input[name='carinfo']").focus();
+                return false;
+            }
+
+
+            if ($("input[name='milemeter']").val().trim()=='') {
+                alert('公里数不能为空！');
+                $("input[name='milemeter']").focus();
+                return false;
+            }
+
+            location.href ="select_item.html?carIdent="+ carIdent + "&milemeter="+ milemeter + "&textname=" + textname;
+
+        });
+
+    });
+
+
+    function getUrlParam(name, url){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = url.substr(1).match(reg);
+        if (r!=null) return unescape(r[2]);
+        return null;
+    }
+</script>
+</body>
+</html>
